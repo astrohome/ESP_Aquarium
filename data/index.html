@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LED Control</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="144x144"  href="/favicon-144x144.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon.ico">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#00878f">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
+        <script src="WebSocket.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div>
+                <h5 class="center-align">LED control</h5>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <span id="time"></span>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <p class="range-field">
+                        <input type="range" id="a" min="0" max="4095" value="0" oninput="sendRGB('a', this.value);"/>
+                    </p>
+                    <p class="range-field">
+                        <input type="range" id="b" min="0" max="4095" value="0" oninput="sendRGB('b', this.value);" />
+                    </p>
+                    <p class="range-field">
+                        <input type="range" id="c" min="0" max="4095" value="0" oninput="sendRGB('c', this.value);" />
+                    </p>
+                    <p class="range-field">
+                        <input type="range" id="d" min="0" max="4095" value="0" oninput="sendRGB('d', this.value);" />
+                    </p>
+                    <a class="waves-effect waves-light red darken-4 btn" onclick="save();"><i class="material-icons left">save</i>Save</a>
+                    <a class="waves-effect waves-light btn" onclick="load();"><i class="material-icons left">update</i>Load</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 offset-m3">
+                    <a class="waves-effect waves-light amber btn" onclick="moonlight();"><i class="material-icons left">wb_sunny</i>Moonlight</a>
+                    <a class="waves-effect waves-light red btn" onclick="off();"><i class="material-icons left">flash_off</i>Off</a>
+                    <a class="waves-effect waves-light green btn" onclick="on();"><i class="material-icons left">flash_on</i>On</a>
+                </div>    
+            </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    </body>
+</html>
